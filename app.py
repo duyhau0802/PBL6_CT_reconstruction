@@ -31,6 +31,7 @@ def faq():
 def aboutus():
     return render_template('aboutus.html')
 
+
 @app.route('/convert', methods=['POST'])
 def upload_image():
     file = request.files['image']
