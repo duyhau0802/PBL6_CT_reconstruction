@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBL6</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="templates/index.css">
+    <style>
+      body {
+          display: flex;
+          flex-direction: column;
+          font-family: Arial, sans-serif;
+          text-align: center;
+          background-color: #f5f5f5;
+      }
+      .container {
+          max-width: 600px;
+          margin: 50px auto;
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          margin-top: 5%;
+      }
+      h1 {
+          margin-bottom: 20px;
+      }
+      #button {
+          background-color: #007bff;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+          margin-top: 20px;
+      }
+      #button:hover {
+          background-color: #0056b3;
+      }
+      #uploaded_image {
+          width: 256px;  
+          height: 256px; 
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <div className="header">
+          <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/faq">FAQ</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="aboutus">About Us</a>
+                  </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0 ">
+                <a class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit" href="login.html">Login</a>
+                <a class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit" href="signup.html">Sign Up</a>
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <a class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Search</a>
+            </form>
+              </div>
+          </div>
+        </div>
+    </header>
+    <div class ="container">
+        <h1>Sinogram to CT Conversion Al</h1>
+        <h3>This project is developed by University Students and still a Beta Verson</h3>
+        <h3>It may have errors and bugs, which make it can not work properly</h3>
+        <h3>If you encounter any errors or have any question, please contact us</h3>
+        <ul>
+          <li>
+            <a href="facebook.com/">Facebook</a>
+          </li>
+          <li>
+            <a href="twitter.com/">Twitter</a>
+          </li>
+          <li>
+            <a href="discord.com/">Discord</a>
+          </li>
+          <li>
+            <a href="github.com/">Github</a>
+          </li> 
+        </ul>
+    </div>
+    <footer>
+        <style>
+            .shadowBox #checkBtn,
+            .shadowBox .btn.tool_btn_submit,
+            .shadowBox .btn.btn-lg.btn-success,
+            .shadowBox .btn.btn-lg.btn-success.active {
+                margin-right: 10px;
+                margin-top: 20px !important;
+                margin-bottom: 20px !important;
+                min-width: 260px !important;
+                padding: 11px 20px !important;
+                font-size: 20px !important;
+                outline: none !important;
+            }
+    
+            /* PPs box BEGIN */
+            .ppsbox-model {
+                background: rgba(0, 0, 0, .4);
+                display: none;
+                height: 100%;
+                position: fixed;
+                text-align: center;
+                top: 0;
+                width: 100%;
+                z-index: 10000
+            }
+    
+            .ppsbox-model .helper-span {
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle
+            }
+    
+            .ppsbox-model>div {
+                background-color: #fff;
+                -webkit-box-shadow: 10px 10px 60px #555;
+                box-shadow: 10px 10px 60px #555;
+                display: inline-block;
+                height: 330px;
+                max-height: 100%;
+                max-width: 360px;
+                min-width: 300px;
+                vertical-align: middle;
+                width: 50%;
+                position: relative;
+                border-radius: 20px;
+                padding: 0 15px 50px
+            }
+    
+            .ppsbox-model>div:after {
+                width: 100%;
+                content: "";
+                height: 40px;
+                z-index: 26;
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                border-radius: 0 0 20px 20px
+            }
+    
+            .ppsbox-model>div.success:after {
+                background-color: var(--ppsbox-success-color)
+            }
+    
+            .ppsbox-model>div.danger:after {
+                background-color: var(--ppsbox-danger-color)
+            }
+    
+            .ppsbox-model>div.warning:after {
+                background-color: var(--ppsbox-warning-color)
+            }
+    
+            .ppsbox-close {
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                display: inline-block;
+                font-family: arial;
+                font-weight: 700;
+                position: absolute;
+                top: 12px;
+                right: 12px;
+                font-size: 25px;
+                line-height: 30px;
+                width: 30px;
+                height: 30px;
+                text-align: center
+            }
+    
+            .ppsbox-close.success {
+                background-color: var(--ppsbox-success-color)
+            }
+    
+            .ppsbox-close.danger {
+                background-color: var(--ppsbox-danger-color)
+            }
+    
+            .ppsbox-close.warning {
+                background-color: var(--ppsbox-warning-color);
+                background-size: contain
+            }
+    
+            .ppsbox-trigger {
+                cursor: pointer;
+                font-size: 20px;
+                margin: 20px;
+                display: inline-block;
+                font-weight: 700
+            }
+    
+            .ppsbox-img {
+                width: 140px;
+                height: 140px;
+                margin: 0 auto;
+                background-size: contain !important
+            }
+    
+            .ppsbox-img.success {
+                background: url(https://www.prepostseo.com/imgs/msg-box-success.png)
+            }
+    
+            .ppsbox-img.danger {
+                background: url(https://www.prepostseo.com/imgs/msg-box-danger.png)
+            }
+    
+            .ppsbox-img.warning {
+                background: url(https://www.prepostseo.com/imgs/msg-box-warning.png)
+            }
+    
+            .ppsbox-heading {
+                font-size: 25px;
+                color: #000000;
+                text-transform: capitalize
+            }
+    
+            .ppsbox-msg {
+                font-size: 15px;
+                color: #000000BF
+            }
+    
+            .help-us {
+                bottom: 5px;
+                position: absolute;
+                z-index: 28;
+                color: #fff;
+                left: 50%;
+                -webkit-transform: translate(-50%, -5px);
+                -ms-transform: translate(-50%, -5px);
+                transform: translate(-50%, -5px);
+                width: 100%;
+                font-size: 15px
+            }
+    
+            .help-us a {
+                font-weight: 700;
+                color: #fff
+            }
+    
+            /* PPs box END */
+            .buyBtn,
+            .rgsBtn {
+                background: #ccc;
+                border-radius: 32px !important;
+                opacity: 1;
+                width: 120px !important;
+                height: 40px;
+                line-height: 2;
+                text-align: center;
+                border: 1px solid #888;
+                color: #838383;
+                margin: 10px auto
+            }
+    
+            .rgsBtn:active,
+            .rgsBtn:focus,
+            .buyBtn:active,
+            .buyBtn:focus {
+                outline: none !important;
+                box-shadow: none !important;
+                color: #fff
+            }
+    
+            .os-icon {
+                padding: 3px 8px;
+                text-indent: 0 !important;
+                margin: 0
+            }
+    
+            .os-icon:hover>img {
+                background: #3acd99
+            }
+    
+            #improveTool {
+                background: #277c55 !important
+            }
+        </style>
+        <div class="container">
+            <div class="col-sm-12 d-flex" style="padding:10px 0px;">
+                <div class="col-sm-4 noP" style="padding-right:20px;">
+                    <a class="fh">Thành viên nhóm</a>
+                    <p>Nguyễn Duy Hậu</p>
+                    <p>Nguyễn Trọng Nghĩa</p>
+                    <p>Trần Chính Huy</p>
+                </div>
+                <div class="col-sm-5 noP" style="padding-right:20px;">
+                  <a class="fh">Sinogram to CT Conversion Al </a>
+                </div>
+                <div class="col-sm-3 noP" style="padding-right:20px; padding-bottom:80px">
+                    <a class="fh">Resources</a>
+                    <hr style=" margin:10px 0;">
+                    <a href="/aboutus">About Us</a>
+                    <br>
+                    <a href="/faq">FAQ</a>            
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

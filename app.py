@@ -24,6 +24,12 @@ model = load_model('stacked_unet_29.h5')
 @app.route('/')
 def index():
     return render_template('index.html')
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
+@app.route('/aboutus')
+def aboutus():
+    return render_template('aboutus.html')
 
 @app.route('/convert', methods=['POST'])
 def upload_image():
