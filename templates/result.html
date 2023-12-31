@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Result</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                background-color: #f5f5f5;
+            }
+            .container {
+                max-width: 600px;
+                margin: 50px auto;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+                margin-top: 5%;
+            }
+            h1 {
+                margin-bottom: 20px;
+            }
+            #button {
+                background-color: #007bff;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                margin-top: 20px;
+            }
+            #button:hover {
+                background-color: #0056b3;
+            }
+            .result-image {
+            width: 256px;  /* Đặt kích thước mong muốn */
+            height: 256px; /* Đặt kích thước mong muốn */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Sinogram to CT Conversion Al</h1>
+            <img class="result-image" src="data:image/png;base64,{{ image_array }}" alt="Reconstructed Image">
+        </div>
+    </body>
+    <script>
+        
+    </script>
+    </html>
