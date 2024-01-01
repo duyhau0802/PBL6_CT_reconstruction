@@ -77,6 +77,25 @@
         </div>
     </body>
     <script>
-        
+        document.addEventListener('DOMContentLoaded', function () {
+            // Gọi API khi trang đã được tải
+            fetch('/convert', {
+                method: 'POST',
+                body: formData,  // Chắc chắn rằng bạn có dữ liệu ảnh để gửi lên server
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Xử lý kết quả từ API
+                if (data.img) {
+                    // Thiết lập nguồn của thẻ <img> để hiển thị ảnh
+                    document.querySelector('.result-image').src = 'data:image/png;base64,' + data.img;
+                } else {
+                    console.error('Không có dữ liệu ảnh từ API');
+                }
+            })
+            .catch(error => {
+                console.error('Lỗi khi gọi API:', error);
+            });
+        });
     </script>
     </html>

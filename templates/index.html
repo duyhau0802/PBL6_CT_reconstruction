@@ -1,133 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PBL6</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="templates/index.css">
-    <style>
-      body {
-          display: flex;
-          flex-direction: column;
-          font-family: Arial, sans-serif;
-          text-align: center;
-          background-color: #f5f5f5;
-          transition: background-color 0.5s ease;
-      }
-      .container {
-          max-width: 600px;
-          margin: 50px auto;
-          background-color: #fff;
-          padding: 20px;
-          border-radius: 5px;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-          margin-top: 5%;
-      }
-      h1 {
-          margin-bottom: 20px;
-      }
-      #button {
-          background-color: #007bff;
-          color: #fff;
-          padding: 10px 20px;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          font-size: 16px;
-          margin-top: 20px;
-      }
-      #button:hover {
-          background-color: #0056b3;
-      }
-      #uploaded_image {
-          width: 256px;  
-          height: 256px; 
-      }
-      .light-mode {
-    background-color: #fff;
-    color: #000;
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PBL6</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="templates/index.css">
+        <style>
+          body {
+              display: flex;
+              flex-direction: column;
+              font-family: Arial, sans-serif;
+              text-align: center;
+              background-color: #f5f5f5;
+              transition: background-color 0.5s ease;
+          }
+          .container {
+              max-width: 600px;
+              margin: 50px auto;
+              background-color: #fff;
+              padding: 20px;
+              border-radius: 5px;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+              margin-top: 5%;
+          }
+          h1 {
+              margin-bottom: 20px;
+          }
+          #button {
+              background-color: #007bff;
+              color: #fff;
+              padding: 10px 20px;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              font-size: 16px;
+              margin-top: 20px;
+          }
+          #button:hover {
+              background-color: #0056b3;
+          }
+          #uploaded_image {
+            width: 256px;  
+            height: 256px;
+            border: 8px solid #ccc;
+            border-radius: 8px; 
+            max-width: 100%; 
+            height: auto; /
+          }
+          .img {
+            margin-top: 100px!important;
+            width: 256px;  
+            height: 256px; 
+            border: 8px solid #ccc; 
+            border-radius: 8px; 
+            max-width: 100%; 
+            height: auto; /
+          }
+          .light-mode {
+            background-color: #fff;
+            color: #000;
+            }
+    
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .vertical-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .vertical-center img {
+            max-height: 100%; 
+            max-width: 100%;  
+        }
+
+        </style>
+    </head>
+    <body>
+      <header>
+        <div className="header">
+          <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/faq">FAQ</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/aboutus">About Us</a>
+                  </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0 ">
+                <a class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit" href="login.html">Login</a>
+                <a class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit" href="signup.html">Sign Up</a>
+                <input class="form-control mr-sm-2"  type="search" placeholder="Search" aria-label="Search">
+                <a class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" style="color: #28a745;" type="submit">Search</a>
+            </form>
+              </div>
+          </div>
+        </div>
+      </header>
+      <div class="head" style="display: block;margin-top: 20px;">
+        <h3>Sinogram to CT Conversion using Unet model</h3>
+    </div>
+<div style="display: flex; justify-content: space-around; padding: 20px; padding-top: 0px; margin-top: 0px;">
+    
+    <!-- Form chọn ảnh -->
+    <div style="width: 45%; ">
+        <div class="container mt-5" style="min-height: 500px;min-width: 300px;margin-top: 20px!important;">
+            <h4>Chọn ảnh</h4>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="imageInput" name="image" accept="image/*" required onchange="displayImage(this)">
+                    <label class="custom-file-label" for="imageInput">Click vào đây để chọn file ảnh </label>
+                </div>
+                <div id="error-missingfile" style="display: none; color: red; font-size: 12px;">Error missing file sinogram</div>
+                <button type="button" class="btn btn-primary mt-3" id="button" onclick="uploadImage()">Convert to CT image</button>
+                <div id="imagePreview" class="mt-3" style="display: none;">
+                    <img id="uploaded_image" src="" alt="Preview">
+                </div>
+                
+            </form>
+        </div>
+        
+    </div>
+
+    <!-- Form kết quả trả về -->
+    <div clas style="width: 45%;">
+        
+        <div class="container mt-5" style="min-height: 500px;min-width: 300px;margin-top: 20px!important;">
+            <h4>Kết quả</h4>
+            <p>Ảnh CT được tái tạo từ sinogram.</p>
+            <div id="result" class="mt-3" style="text-align: center;">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    function displayImage(input) {
+        var file = input.files[0];
+        var imagePreviewDiv = document.getElementById('imagePreview');
+
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                document.getElementById('uploaded_image').src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+
+            // Hiển thị div khi có ảnh được chọn
+            imagePreviewDiv.style.display = 'block';
+        } else {
+            // Ẩn div khi không có ảnh được chọn
+            imagePreviewDiv.style.display = 'none';
+        }
     }
 
-    .dark-mode {
-        background-color: #333;
-        color: #fff;
+
+    function uploadImage() {
+        var fileInput = document.querySelector('input[name="image"]');
+            var errorDiv = document.getElementById('error-missingfile');
+
+            // Kiểm tra xem có file được chọn hay không
+            if (!fileInput.value) {
+                // Nếu không có file, hiển thị thông báo lỗi và ngăn chặn submit
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            // Nếu có file, ẩn thông báo lỗi và tiếp tục submit
+            errorDiv.style.display = 'none';
+
+        // Lấy form và dữ liệu ảnh
+        var form = document.getElementById('uploadForm');
+        var formData = new FormData(form);
+
+        // Gọi API để xử lý ảnh
+        fetch('/convert', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Hiển thị ảnh kết quả
+            if (data.img) {
+                document.getElementById('result').innerHTML = '<img class="img "  src="data:image/png;base64,' + data.img + '" alt="Reconstructed Image">';
+            } else {
+                console.error('Không có dữ liệu ảnh từ API');
+            }
+        })
+        .catch(error => {
+            console.error('Lỗi khi gọi API:', error);
+        });
     }
-    </style>
-</head>
-<body>
-  <header>
-    <div className="header">
-      <div class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/faq">FAQ</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/aboutus">About Us</a>
-              </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0 ">
-            <a class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit" href="login.html">Login</a>
-            <a class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit" href="signup.html">Sign Up</a>
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <a class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Search</a>
-        </form>
-          </div>
-      </div>
-    </div>
-  </header>
-  <div class="container">
-      <h1>Sinogram to CT Conversion Al</h1>
-      <p>To process <strong>Image</strong>, Upload picture and click on <strong>Convert with AI</strong> Button.</p>
-      <form action="/convert" method="POST" enctype="multipart/form-data">
-            <input type="file" name="image" accept="image/*" required><br/>
-            <div> 
-                <img id="uploaded_image" src="" alt = "." >
-            </div>
-            <input type="submit" id="button" value="Convert with Al">
-        </form>
-  </div>
+</script>
+
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const imageInput = document.querySelector('input[type="file"]');
-      const uploadedImage = document.getElementById('uploaded_image');
-      const output = document.getElementById('output');
-  
-      imageInput.addEventListener('change', handleImageChange);
-  
-      function handleImageChange(event) {
-        const file = event.target.files[0];
-        if (file) {
-          const reader = new FileReader();
-  
-          reader.onload = (e) => {
-            displayImage(e.target.result);
-          };
-  
-          reader.readAsDataURL(file);
-        } else {
-          clearImage();
-        }
-      }
-  
-      function displayImage(src) {
-        uploadedImage.src = src;
-        output.textContent = ''; // Clear any previous output
-      }
-  
-      function clearImage() {
-        uploadedImage.src = '';
-        output.textContent = 'No image selected'; // Display a message when no image is selected
-      }
-    });
-  </script>
-  
 </html>
