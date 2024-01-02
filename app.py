@@ -67,10 +67,11 @@ def upload_image():
             ## result shape = 128x128
 
             # Resize result từ 128x128 thành 512x512
-            result_resized = cv2.resize(result, (512, 512))
+
+            # result_resized = cv2.resize(result, (512, 512))
 
             # Mã hóa mảng NumPy thành base64
-            _, buffer = cv2.imencode('.png', result_resized)
+            _, buffer = cv2.imencode('.png', result)
             img_base64 = base64.b64encode(buffer).decode('utf-8')
 
             return jsonify({
