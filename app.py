@@ -1,3 +1,6 @@
+import warnings
+warnings.filterwarnings("ignore")
+
 from flask import Flask, request, render_template, jsonify
 import numpy as np
 import os
@@ -38,13 +41,18 @@ def upload_image():
         if file:
             img = Image.open(BytesIO(file.read()))
 
-            img_array = np.array(img)
+            # Chuyển đổi ảnh màu thành ảnh grayscale nếu cần
+            if img.mode == 'RGB':
+                img_array = np.array(img)
+                img_array_gray = cv2.cvtColor(img_array, cv2.COLOR_RGB2GRAY)
+            else:
+                img_array_gray = np.array(img)
 
-            if img_array.shape != (128, 128):
+            if img_array_gray.shape[:2] != (128, 128):
                 # Resize ảnh về kích thước 128x128
-                img_array = cv2.resize(img_array, (128, 128), interpolation=cv2.INTER_AREA)
+                img_array_gray = cv2.resize(img_array_gray, (128, 128), interpolation=cv2.INTER_AREA)
 
-            img_array_normalize = img_array / 255.0
+            img_array_normalize = img_array_gray / 255.0
             print(img_array_normalize.shape)
             print(np.max(img_array_normalize))
             # 128x128
@@ -86,3 +94,4 @@ def upload_image():
 if __name__ == '__main__':
     app.run(debug=True)
     
+warnings.resetwarnings()

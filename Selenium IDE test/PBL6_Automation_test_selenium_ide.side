@@ -1,0 +1,204 @@
+{
+  "id": "7f54112a-225f-4b49-9c60-9d0564e967bc",
+  "version": "2.0",
+  "name": "PBL",
+  "url": "http://127.0.0.1:5000/",
+  "tests": [{
+    "id": "1077add5-227e-4501-a834-95b138cb1b75",
+    "name": "TC_01_no_input",
+    "commands": [{
+      "id": "8f0c1325-f953-41fa-9b4e-8b8eefe05b93",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f76186f9-c4b3-4c78-8636-6e5f6ca05147",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x696",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ae9c4dbb-a1ea-4731-b5a0-5562cd7ea835",
+      "comment": "",
+      "command": "click",
+      "target": "id=button",
+      "targets": [
+        ["id=button", "id"],
+        ["css=#button", "css:finder"],
+        ["xpath=//button[@id='button']", "xpath:attributes"],
+        ["xpath=//form[@id='uploadForm']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Convert to CT image')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d718b56b-8056-4673-a5e2-1dcf0a20f2fb",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=error-missingfile",
+      "targets": [],
+      "value": "Error missing file sinogram"
+    }]
+  }, {
+    "id": "d2a70263-eb1d-41ca-832f-eda9a6293dcc",
+    "name": "TC_02_check_display_preview",
+    "commands": [{
+      "id": "cf59578f-e3e4-474f-8975-274dfa65453d",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "001f1b79-1700-4f8f-9ab4-a39099db0f42",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "850x458",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "46f75b00-42c1-4f4c-a90e-eb102cc523d7",
+      "comment": "",
+      "command": "click",
+      "target": "id=imageInput",
+      "targets": [
+        ["id=imageInput", "id"],
+        ["name=image", "name"],
+        ["css=#imageInput", "css:finder"],
+        ["xpath=//input[@id='imageInput']", "xpath:attributes"],
+        ["xpath=//form[@id='uploadForm']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6eade84-2048-4954-b1fa-13180cbf07f0",
+      "comment": "",
+      "command": "//type",
+      "target": "id=imageInput",
+      "targets": [],
+      "value": "E:\\download\\Full Dose\\Test\\X_test_1.png"
+    }, {
+      "id": "ad8e5276-a41f-4814-b1f0-d0982eda8cae",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=uploaded_image",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b7b08aaa-9831-40c8-884b-0a9f3adf2aaf",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "5c8d80e2-bfec-4405-9994-e3557e2ea3fc",
+    "name": "TC_03_check_display_result",
+    "commands": [{
+      "id": "219ada97-62b4-45f7-8871-2157bfcb92cf",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b076ee2e-34de-4387-8fe5-1a163b7f5b7e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "850x458",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0df86fff-ba36-4574-a61c-a06b636781a8",
+      "comment": "",
+      "command": "click",
+      "target": "id=imageInput",
+      "targets": [
+        ["id=imageInput", "id"],
+        ["name=image", "name"],
+        ["css=#imageInput", "css:finder"],
+        ["xpath=//input[@id='imageInput']", "xpath:attributes"],
+        ["xpath=//form[@id='uploadForm']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ecbe083a-6d88-4f1e-b78b-97d4f35bee91",
+      "comment": "",
+      "command": "click",
+      "target": "id=imageInput",
+      "targets": [
+        ["id=imageInput", "id"],
+        ["name=image", "name"],
+        ["css=#imageInput", "css:finder"],
+        ["xpath=//input[@id='imageInput']", "xpath:attributes"],
+        ["xpath=//form[@id='uploadForm']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "053abc86-d879-4603-997e-15ec256bbe8e",
+      "comment": "",
+      "command": "//type",
+      "target": "id=imageInput",
+      "targets": [],
+      "value": "E:\\download\\Full Dose\\Test\\X_test_1.png"
+    }, {
+      "id": "9dc274c7-2016-4e54-ae11-c1c7e8b936d4",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=uploaded_image",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f6dd0dd0-020d-4e48-b8d9-87b75894b282",
+      "comment": "",
+      "command": "click",
+      "target": "id=button",
+      "targets": [
+        ["id=button", "id"],
+        ["css=#button", "css:finder"],
+        ["xpath=//button[@id='button']", "xpath:attributes"],
+        ["xpath=//form[@id='uploadForm']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Convert to CT image')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "34195aab-0a19-43e4-89c8-fe12b82e54c8",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=button",
+      "targets": [
+        ["id=button", "id"],
+        ["css=#button", "css:finder"],
+        ["xpath=//button[@id='button']", "xpath:attributes"],
+        ["xpath=//form[@id='uploadForm']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Convert to CT image')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e12e1b5d-260e-4073-a4cc-02a24247cb58",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "4007abe5-133a-44dd-9974-43c096ad56ba",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["1077add5-227e-4501-a834-95b138cb1b75"]
+  }],
+  "urls": ["http://127.0.0.1:5000/"],
+  "plugins": []
+}
